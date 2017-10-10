@@ -1,0 +1,78 @@
+{ 
+    "unicast" : "136.17.90.50",
+    "logging" :
+    {
+        "level" : "debug",
+        "console" : "true",
+        "file" : { "enable" : "false" },
+        "dlt" : "false"
+    },
+    "applications" :
+    [
+        {
+            "name" : "client-sample",
+            "id" : "0x1343"
+        },
+        {
+            "name" : "service-sample",
+            "id" : "0x1277"
+        }
+    ],
+    "servicegroups" :
+    [
+        {
+            "name" : "remote-gr",
+            "unicast" : "local",
+	    "delays" :
+                        {
+                                "initial" : { "minimum" : "10", "maximum" : "100" },
+                                "repetition-base" : "200",
+                                "repetition-max" : "3",
+                                "cyclic-offer" : "2000",
+                                "cyclic-request" : "2001"
+                        },
+            "services" :
+            [
+                {
+                    "service" : "0x1234",
+                    "instance" : "0x5678",
+                    "unreliable" : "31000",
+                    "events" : 
+                    [
+                        {
+                            "event" : "0x80F2",
+                            "is_field" : "false",
+                            "is_reliable" : "false",
+                            "update-cycle" : "0"
+                        },
+                        {
+                            "event" : "0x80EC",
+                            "is_field" : "true",
+                            "is_reliable" : "false",
+                            "update-cycle" : "0"
+                        }
+                    ],
+                    "eventgroups" :
+                    [
+                        {
+                            "eventgroup" : "0x80F2",
+                            "events" : [ "0x80F2" ]
+                        },
+                        {
+                            "eventgroup" : "0x80EC",
+                            "events" : [ "0x80EC" ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "routing" : "service-sample",
+    "service-discovery" :
+    {
+        "enable" : "true",
+        "port" : "30490",
+        "protocol" : "udp"
+    }
+}
+

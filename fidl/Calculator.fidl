@@ -1,0 +1,339 @@
+package SimpleCalculator.CalculatorInterface
+
+<**
+@description :
+    The interface provies APIs to perform calculator operations
+    @author : Module Owner Name
+**>
+// Interface name must be identical to the file name
+interface Calculator
+{
+ 	version { major 1 minor 0 }
+
+    <**
+    @description :
+        Perform add operation.
+        (at)Return add result.
+    **>
+ 	method add
+	{
+		in
+		{
+			UInt32 param1
+			UInt32 param2
+		}
+		out
+		{
+			UInt32 result
+		}
+	}
+
+    <**
+    @description :
+        Perform divide operation.
+        (at)Return add result.
+    **>
+	method division
+	{
+		in
+		{
+			Float a
+			Float b
+		}
+		out
+		{
+			Float result
+		}
+		error DIVISION_ERROR
+
+	}
+
+    <**
+        @description : This attribute reflects calculator operation value.
+    **>
+	attribute Int32 calattribute
+
+    <**
+        @description : This is a callback to update operation_status change.
+    **>
+	broadcast operation_status
+    {
+		out
+		{
+			UInt32 status
+		}
+	}
+
+    <**
+    @description :
+        Enum for division errors.
+    **>
+	enumeration DIVISION_ERROR
+	{
+		NO_ERROR
+		DIVIDE_BYZERO
+		DIV_OVERFLOW
+		DIV_UNDERFLOW
+	}
+
+  <**
+  @description :
+  one array for each basic type **>
+
+  array MyArray01 of UInt8
+  array MyArray02 of UInt16
+  array MyArray03 of UInt32
+  array MyArray04 of UInt64
+  array MyArray05 of ByteBuffer
+
+  <**
+    @description :
+        Perform Test1 operation.
+        (at)Return Test1 result.
+    **>
+  method Test1
+  {
+    in
+    {
+      UInt8 param
+    }
+    out
+    {
+      UInt8 result
+    }
+  }
+
+
+
+  <**
+   @description :
+        Perform Test2 operation.
+        (at)Return Test2 result.
+    **>
+  method Test2
+  {
+    in
+    {
+      UInt16 param
+    }
+    out
+    {
+      UInt16 result
+    }
+  }
+
+
+
+  <**
+      @description :
+        Perform Test3 operation.
+        (at)Return add result.
+  **>
+
+  method Test3
+  {
+    in
+    {
+      UInt32 param
+    }
+    out
+    {
+      UInt32 result
+    }
+  }
+
+
+
+      <**
+    @description :
+        Perform Test4 operation.
+        (at)Return Test4 result.
+    **>
+  method Test4
+  {
+    in
+    {
+      UInt64 param
+    }
+    out
+    {
+      UInt64 result
+    }
+  }
+
+
+
+      <**
+    @description :
+        Perform Test5 operation.
+        (at)Return Test5 result.
+    **>
+  method Test5
+  {
+    in
+    {
+      String name
+    }
+    out
+    {
+      String message
+    }
+  }
+
+
+  <** @description : **>
+
+  enumeration MetadataType
+    {
+        MEDIA_METADATATYPE_TITLE = 1
+        MEDIA_METADATATYPE_ALBUM = 2
+        MEDIA_METADATATYPE_ARTIST = 4
+        MEDIA_METADATATYPE_GENRE = 8
+        MEDIA_METADATATYPE_YEAR = 16
+        MEDIA_METADATATYPE_COMPOSER = 32
+        MEDIA_METADATATYPE_TRACK_NUMBER = 64
+        MEDIA_METADATATYPE_TRACK_ALBUMART = 128
+        MEDIA_METADATATYPE_TRACK_UID = 256
+
+    }
+  enumeration MetadataFormat
+  {
+        METADATAFORMAT_INTEGER
+        METADATAFORMAT_STRING
+  }
+
+  struct MetadataElement
+  {
+        MetadataType type
+        MetadataFormat format
+        String stringValue
+        UInt32 integerValue
+  }
+  array MetadataElementList of MetadataElement
+
+      <**
+    @description :
+        Perform Test6 operation.
+        (at)Return Test6 result.
+    **>
+
+  method Test6
+  {
+    in
+    {
+      MetadataElement param
+    }
+    out
+    {
+      MetadataElement result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test7 operation.
+        (at)Return Test7 result.
+    **>
+
+  method Test7
+  {
+    in
+    {
+      MetadataElementList param
+    }
+    out
+    {
+      MetadataElementList result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test8 operation.
+        (at)Return Test8 result.
+    **>
+
+  method Test8
+  {
+    in
+    {
+        MyArray01 param
+    }
+    out
+    {
+        MyArray01 result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test9 operation.
+        (at)Return Test9 result.
+    **>
+
+  method Test9
+  {
+    in
+    {
+        MyArray02 param
+    }
+    out
+    {
+        MyArray02 result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test10 operation.
+        (at)Return Test10 result.
+    **>
+
+  method Test10
+  {
+    in
+    {
+        MyArray03 param
+    }
+    out
+    {
+        MyArray03 result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test11 operation.
+        (at)Return Test11 result.
+    **>
+
+  method Test11
+  {
+    in
+    {
+        MyArray04 param
+    }
+    out
+    {
+        MyArray04 result
+    }
+  }
+
+      <**
+    @description :
+        Perform Test12 operation.
+        (at)Return Test12 result.
+    **>
+
+  method Test12
+  {
+    in
+    {
+        ByteBuffer name
+    }
+    out
+    {
+        ByteBuffer message
+    }
+  }
+}

@@ -1,0 +1,37 @@
+import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-SOMEIP_deployment_spec.fdepl"
+import "Calculator.fidl"
+define org.genivi.commonapi.someip.deployment for interface SimpleCalculator.CalculatorInterface.Calculator {
+    SomeIpServiceID = 4660
+     attribute calattribute {
+		SomeIpGetterID = 33002
+		SomeIpSetterID = 33003
+		SomeIpNotifierID = 33004
+		// All these ID settings are optional, but you need to specify at least one
+		// if you specify a SomeIpNotifierID you also need to specify an eventgroup
+		SomeIpEventGroups = { 33004 }
+	}
+    method add {
+        SomeIpMethodID = 33000
+    }
+    method division
+	{
+	    SomeIpMethodID =  33001
+	}
+
+	broadcast operation_status
+	{
+        SomeIpEventID = 33010
+        SomeIpEventGroups = { 33010 }
+
+        out {
+        }
+    }
+
+}
+
+define org.genivi.commonapi.someip.deployment for provider MyService {
+    instance SimpleCalculator.CalculatorInterface.Calculator {
+        InstanceId = "CalculatorServer"
+        SomeIpInstanceID = 22136
+    }
+}
