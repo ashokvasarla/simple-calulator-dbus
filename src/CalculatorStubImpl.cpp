@@ -26,6 +26,12 @@ CalculatorStubImpl::~CalculatorStubImpl()
 	DLT_LOG(CalcServer,DLT_LOG_INFO,DLT_STRING("CalculatorStubImpl DTOR"));
 }
 
+
+void CalculatorStubImpl::onRemoteCalattributeAttributeChanged()
+{
+	std::cout << "onRemoteCalattributeAttributeChanged" << std::endl;
+}
+
 /****************************************************************************
  Function Name     : add
  Description       : Add method to add 2 numbers

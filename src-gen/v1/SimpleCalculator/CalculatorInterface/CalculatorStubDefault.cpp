@@ -66,26 +66,30 @@ void CalculatorStubDefault::setCalattributeAttribute(const std::shared_ptr<Commo
 
 void CalculatorStubDefault::onRemoteCalattributeAttributeChanged() {
     // No operation in default
+    std::cout << "FireEvent" << std::endl;
 }
 
 void CalculatorStubDefault::RemoteEventHandler::onRemoteCalattributeAttributeChanged() {
+    std::cout << "Place3" << std::endl;
     assert(defaultStub_ !=NULL);
     defaultStub_->onRemoteCalattributeAttributeChanged();
 }
 
 bool CalculatorStubDefault::RemoteEventHandler::onRemoteSetCalattributeAttribute(int32_t _value) {
+    std::cout << "Place2" << std::endl;
     assert(defaultStub_ !=NULL);
     return defaultStub_->trySetCalattributeAttribute(std::move(_value));
 }
 
 bool CalculatorStubDefault::RemoteEventHandler::onRemoteSetCalattributeAttribute(const std::shared_ptr<CommonAPI::ClientId> _client, int32_t _value) {
     (void)_client;
+    std::cout << "Place1" << std::endl;
     return onRemoteSetCalattributeAttribute(_value);
 }
 
 
 /*
- * description: 
+ * description:
  * Perform add operation.
  * (at)Return add result.
  */
@@ -98,7 +102,7 @@ void CalculatorStubDefault::add(const std::shared_ptr<CommonAPI::ClientId> _clie
 }
 
 /*
- * description: 
+ * description:
  * Perform divide operation.
  * (at)Return add result.
  */
@@ -112,7 +116,7 @@ void CalculatorStubDefault::division(const std::shared_ptr<CommonAPI::ClientId> 
 }
 
 /*
- * description: 
+ * description:
  * Perform Test1 operation.
  * (at)Return Test1 result.
  */
@@ -124,7 +128,7 @@ void CalculatorStubDefault::Test1(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test2 operation.
  * (at)Return Test2 result.
  */
@@ -136,7 +140,7 @@ void CalculatorStubDefault::Test2(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test3 operation.
  * (at)Return add result.
  */
@@ -148,7 +152,7 @@ void CalculatorStubDefault::Test3(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test4 operation.
  * (at)Return Test4 result.
  */
@@ -160,7 +164,7 @@ void CalculatorStubDefault::Test4(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test5 operation.
  * (at)Return Test5 result.
  */
@@ -172,7 +176,7 @@ void CalculatorStubDefault::Test5(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test6 operation.
  * (at)Return Test6 result.
  */
@@ -184,7 +188,7 @@ void CalculatorStubDefault::Test6(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test7 operation.
  * (at)Return Test7 result.
  */
@@ -196,7 +200,7 @@ void CalculatorStubDefault::Test7(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test8 operation.
  * (at)Return Test8 result.
  */
@@ -208,7 +212,7 @@ void CalculatorStubDefault::Test8(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test9 operation.
  * (at)Return Test9 result.
  */
@@ -220,7 +224,7 @@ void CalculatorStubDefault::Test9(const std::shared_ptr<CommonAPI::ClientId> _cl
 }
 
 /*
- * description: 
+ * description:
  * Perform Test10 operation.
  * (at)Return Test10 result.
  */
@@ -232,7 +236,7 @@ void CalculatorStubDefault::Test10(const std::shared_ptr<CommonAPI::ClientId> _c
 }
 
 /*
- * description: 
+ * description:
  * Perform Test11 operation.
  * (at)Return Test11 result.
  */
@@ -244,7 +248,7 @@ void CalculatorStubDefault::Test11(const std::shared_ptr<CommonAPI::ClientId> _c
 }
 
 /*
- * description: 
+ * description:
  * Perform Test12 operation.
  * (at)Return Test12 result.
  */
@@ -257,7 +261,7 @@ void CalculatorStubDefault::Test12(const std::shared_ptr<CommonAPI::ClientId> _c
 
 
 /*
- * description: 
+ * description:
  * This is a callback to update operation_status change.
  */
 void CalculatorStubDefault::fireOperation_statusEvent(const uint32_t &_status) {
@@ -266,7 +270,7 @@ void CalculatorStubDefault::fireOperation_statusEvent(const uint32_t &_status) {
 
 
 CalculatorStubDefault::RemoteEventHandler::RemoteEventHandler(CalculatorStubDefault *_defaultStub)
-    : 
+    :
       defaultStub_(_defaultStub) {
 }
 

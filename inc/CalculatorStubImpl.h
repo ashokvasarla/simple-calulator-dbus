@@ -60,6 +60,8 @@ public:
   void Test10(const std::shared_ptr<CommonAPI::ClientId> _client, Calculator::MyArray03 _param, Test10Reply_t _reply);
   void Test11(const std::shared_ptr<CommonAPI::ClientId> _client, Calculator::MyArray04 _param, Test11Reply_t _reply);
   void Test12(const std::shared_ptr<CommonAPI::ClientId> _client, CommonAPI::ByteBuffer _name, Test12Reply_t _reply);
+
+  void onRemoteCalattributeAttributeChanged();
 };
 
 #endif /* CALCULATORSTUBIMPL_H_ */
